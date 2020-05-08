@@ -4,7 +4,7 @@ This repository presents some exercices using Mapper and Reducer. For each part,
 To use correctly mapper and reducer you can use shell.sh
 
 
-## UN
+## TP1
 Create Mapper, Reducer and put in Hadoop in JAVA and in Python
 
 ### Dataset (smalldata.txt):
