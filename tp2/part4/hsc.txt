@@ -1,5 +1,0 @@
-mapreduce_combiner(){
-        hadoop jar /usr/lib/hadoop-0.20-mapreduce/contrib/streaming/hadoop-streaming-2.6.0-mr1-cdh5.12.0.jar -mapper $1 -reducer $2 -combiner $2 -file $1 -file $2 -input $3 -output $4
-}
-alias hsc=mapreduce_combiner
-
