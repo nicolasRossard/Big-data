@@ -23,7 +23,7 @@ Create Mapper, reducer and put in hadoop in Python (get a field from a dataset, 
 #### clean_forum:
 Contains all informations posts (example test.tsv):
 
-[postID] \t [title] \t [tagnames] \t [authorID] \t [body] \t [node_type] \t  [parent_id] \t [abs_parent_ID] \t [addet_at] \t [score] ....
+[postID] \t [title] \t [tagnames] \t [authorID] \t [body] \t [node_type] \t  [parent_id] \t [abs_parent_ID] \t [addet_at] \t [score] ...
 
 ### forum_users:
 Contains all informations of the author (used only part5):
