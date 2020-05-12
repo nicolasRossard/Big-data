@@ -24,3 +24,7 @@ Contains all informations of the author (split by a tab):
 
 ### Output final (split by a tab):
 "postID", "title", "tagnames", "authorID", "body", "node_type", "parent_id", "abs_parent_ID", "addet_at", "score", "reputation", "gold", "silver", "bronze"
+
+
+### find.py
+Find an author ID or a postID and give the reputation of the author. Use output file
