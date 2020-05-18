@@ -1,6 +1,6 @@
 #!/usr/bin/pyspark
 ##
-# MapReduce counts how many time appears each word  and then display letters of each word which are number of occurences >= X
+# MapReduce counts how many time appears each word  and then display letters of each word which have their number of occurences >= X
 # arguments :
 #	pathHDFS of fileIn
 #	pathHDFS of fileOut
