@@ -1,0 +1,87 @@
+# APACHE SPARK
+## GOALS
+Samples using apache Spark
+
+## Part3
+MapReduce
+
+Read a file
+
+Count number of occurences for each word
+
+Take only words chich appear >= X times
+
+For these words, count number of occurences for each letter
+
+### To execute
+Put ./simplesparkapp/data/inputfile.txt in HDFS
+
+Run:
+$ spark-submit --class com.cloudera.sparkwordcount.SparkWordCount --master local sparkwordcount.jar [path_HDFS]/inputfile.txt [X] > res.txt
+
+Example res.txt for X=2
+
+## Part4
+### Before to run:
+You have to create a function hs in your .bashrc for hadoop streaming:
+$ vim ¬/.bashrc
+
+mapreduce(){
+        hadoop jar [your_path]/hadoop-streaming-[version].jar -mapper $1 -reducer $2 -file $1 -file $2 -input $3 -output $4
+}
+alias hs=mapreduce
+
+$ source ¬/.bashrc
+
+### sample/
+Execute the same mapReduce than part3 with Hadoop. Give the time to execute with Hadoop.
+
+#### To execute main.py
+$ ./main.py [pathHadoop_files_input] [X] 
+
+To try in Local
+
+$ cat ./part4/sample/inputfile.txt | ./part4/sample/map.py |sort | ./part4/sample/red.py | ./part4/sample/map2.py [X] | sort | ./part4/sample/red.py > res.txt  
+
+### dataset/
+Execute the same mapReduce than other parts but for a special dataset. We want to use only one column.
+Compare results and performances of Hadoop and Spark.
+
+You can check the dataset in data_sample/
+
+#### Hadoop/
+Run mapReduce with Hadoop
+mapClean.py and red.py : mapReduce like wordcount
+map2Clean.py X and red.py: mapReduce to count nb of occurences for each letter that belongs to a word where its number of occurences is greater or equal at X
+
+To try in local:
+
+$ cat ../dataset/data_sample/clean_test.tsv | ../dataset/hadoop/mapClean.py | sort | ../dataset/hadoop/red.py |../dataset/hadoop/map2Clean.py 7 | sort | ../dataset/hadoop/red.py > res.txt
+
+#### spark/
+Same mapReduce with Spark.
+
+Put datas sample on hadoop:
+
+$hadoop fs -mkdir tp3In/
+
+$ hadoop fs -put .../dataset/data_sample/clean_test.tsv tp3In/
+
+Run sparApp.py
+
+../dataset/spark/sparkApp.py tp3In/clean_test.tsv [X] out
+
+Get result
+
+$ hadoop fs -ls out
+
+Found 1 items
+
+drwxr-xr-x   - cloudera cloudera          0 2020-05-18 02:19 out/sparkRes
+
+#### compare.py
+Execute mapReduces with hadoop and Spark. Compare their performance.
+Look example__execution.txt (you can try with dataset in data_sample/)
+
+#### Example of result
+check example_execution.txt file  and you have the result in the folder out/

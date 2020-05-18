@@ -30,4 +30,15 @@ Contains all informations of the author (used only part5):
 
 [authorID] \t [reputation] [gold] \t  [silver] \t [bronze]
 
+
+## TP3
+### Goals
+Use Spark and compare performance with Hadoop
+
+### part3
+Use Spark on a sample dataset
+
+### part4
+Compare Spark and Hadoop on a sample datset and a special dataset
+
 INSA de Toulouse 
